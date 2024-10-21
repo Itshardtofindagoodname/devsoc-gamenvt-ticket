@@ -2,12 +2,14 @@
 
 import { useState, useRef } from 'react'
 import { useFormState, useFormStatus } from 'react-dom'
+import Image from 'next/image'
 import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
 import { registerStudent } from '../actions/register-student'
+import qr from "../../assets/qr.jpeg"
 
 export default function RegistrationForm() {
   const [state, formAction] = useFormState(registerStudent, null)
@@ -81,9 +83,12 @@ export default function RegistrationForm() {
 
         <div>
           <Label>QR Code</Label>
-          <div className="w-48 h-48 bg-gray-200 flex items-center justify-center text-gray-500">
-            QR Code Placeholder
-          </div>
+          <Image
+          src={qr}
+          alt="QR Code"
+          width={200}
+          height={200}
+          />
         </div>
 
         <div>
